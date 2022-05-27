@@ -1,0 +1,34 @@
+from pytube import YouTube
+import os
+import json
+from moviepy.editor import *
+
+# file = open("example-data.json")
+# print(os.getcwd())
+#
+# videos = json.load(file)
+
+
+# def download(url):
+#     videoName = f"{YouTube(url).title}.mp4"
+#     for filename in os.listdir("./videos"):
+#         if filename == videoName:
+#             return videoName
+#     print(f"Downloading {videoName} . . . ")
+#     videoName = YouTube(url).streams.get_highest_resolution().download('./videos')
+#     return videoName.split("\\")[-1]
+
+
+def cut(videoName, clipName, startTime, endTime):
+    print(f"Cutting {videoName} . . .")
+    # clip = VideoFileClip(f"./videos/{videoName}").subclip(startTime, endTime).write_videofile(f"./clips/{clipName}.mp4")
+    clip = VideoFileClip("https://rr1---sn-4g5e6ns6.googlevideo.com/videoplayback?expire=1653251050&ei=ikeKYoDTEJb6hgak8p7wBQ&ip=169.60.80.190&id=o-AJAz5PbTgM75NCo9-ivrPcbHTbiVa1_DzL5rdtalQrd3&itag=18&source=youtube&requiressl=yes&vprv=1&mime=video%2Fmp4&gir=yes&clen=10232811&ratebypass=yes&dur=197.323&lmt=1647971599106995&fexp=24001373,24007246&c=ANDROID&txp=5318224&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cvprv%2Cmime%2Cgir%2Cclen%2Cratebypass%2Cdur%2Clmt&sig=AOq0QJ8wRQIgNIfAwQFOTIhz5J2vYrJwSYyauiLsil5XC03vqDzfv2sCIQCotuGw67R7DfOLWuk423oSgE3f1WdgKQqbF3B2Had3rw%3D%3D&redirect_counter=1&cm2rm=sn-p5qeel76&req_id=9db9f0be151ba3ee&cms_redirect=yes&mh=pu&mip=2001:a61:131f:4301:ccf4:ab7c:7718:581a&mm=34&mn=sn-4g5e6ns6&ms=ltu&mt=1653229003&mv=m&mvi=1&pl=40&lsparams=mh,mip,mm,mn,ms,mv,mvi,pl&lsig=AG3C_xAwRAIgQeyCBaaL4L5IbWeki4bwx8vn98dPsFvzXE0mCt5UyE8CIGtDf2trN1gGgWLbompGNU-tne-6KzyY2t1DvHdtz20k").subclip(startTime, endTime).write_videofile(f"./clips/{clipName}.mp4")
+
+
+if __name__ == "__main__":
+    videoPath = "https://youtu.be/FiWnNjJTuF8"
+
+    cut(videoPath, 'aaaa', 82, 96)
+    # for video in videos:
+    #     videoPath = download(video["url"])
+    #     cut(videoPath, video["name"], video["startTime"], video["endTime"])
